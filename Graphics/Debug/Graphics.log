@@ -1,0 +1,27 @@
+﻿  main.cpp
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(123,19): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(129,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(127,9): warning C4101: 'j': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(127,6): warning C4101: 'i': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(242,117): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(242,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(242,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(245,129): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(245,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(245,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(248,141): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(248,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(248,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(251,129): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(251,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(251,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(400,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(401,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(405,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(406,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(661,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(786,9): warning C4101: 'dist': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(785,9): warning C4101: 'j': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(785,6): warning C4101: 'i': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Graphics\main.cpp(868,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Graphics.vcxproj -> C:\Users\nissa\OneDrive\שולחן העבודה\Afeka\שנה ד\גרפיקה ממוחשבת\Final Project\Graphics\Debug\Graphics.exe
