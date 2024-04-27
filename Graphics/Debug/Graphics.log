@@ -1,25 +1,25 @@
 ﻿  main.cpp
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(124,19): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(130,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(128,9): warning C4101: 'j': unreferenced local variable
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(128,6): warning C4101: 'i': unreferenced local variable
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(230,17): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(231,18): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(239,69): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(239,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(239,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(242,73): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(242,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(242,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(245,77): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(245,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(245,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(248,73): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(248,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(248,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(655,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(873,9): warning C4101: 'dist': unreferenced local variable
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(872,9): warning C4101: 'j': unreferenced local variable
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(872,6): warning C4101: 'i': unreferenced local variable
-C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(956,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(126,19): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(132,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(130,9): warning C4101: 'j': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(130,6): warning C4101: 'i': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(232,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(233,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(241,69): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(241,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(241,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(244,73): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(244,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(244,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(247,77): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(247,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(247,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(250,73): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(250,32): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(250,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(658,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(876,9): warning C4101: 'dist': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(875,9): warning C4101: 'j': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(875,6): warning C4101: 'i': unreferenced local variable
+C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Graphics\main.cpp(959,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
   Graphics.vcxproj -> C:\Users\nissa\OneDrive\שולחן העבודה\3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building\Debug\Graphics.exe

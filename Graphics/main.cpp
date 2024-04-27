@@ -59,6 +59,8 @@ void UpdateGround();
 void Smooth();
 void createWorld();
 void copyStartingWorld();
+void menu(int choice);
+
 // fill up the texture matrix
 void SetupTexture(int tnum)
 {
@@ -383,7 +385,8 @@ void HydraulicErosion() {
 	do {
 		x = rand() % GSZ;
 		z = rand() % GSZ;
-	} while (ground[x][z] <= 0);
+	} while (ground[x][z] <= 0 || 
+		ground[x][z] < startingGround[x][z] - waterDepthFactor * startingGround[x][z]);
 	int number_of_rain_points = rand() % manximum_number_of_rain_points;
 	for (int l = 0; l < number_of_rain_points; l++)
 	{
