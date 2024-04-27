@@ -39,7 +39,7 @@ double waterDepthFactor = 0.3;
 bool HydraulicErosionAct = false;
 int maxDistFronCenter = 10;
 int minimumRiverDist = 1;
-int maximumRiverDist = 2;
+int maximumRiverDist = 5;
 int bottomR = 1;
 int max_height_building = 5;
 int min_height_building = 2;
@@ -772,7 +772,7 @@ void dispalyWorld()
 	{
 		resetConstruction();
 		HydraulicErosionAct = true;
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 50; i++)
 		{
 			HydraulicErosion();
 		}
@@ -795,8 +795,8 @@ void dispalyWorld()
 				do {
 					x = rand() % GSZ;
 					z = rand() % GSZ;
-				} while (ground[x][z] < 0.5
-					|| ground[x][z] < startingGround[x][z] - 5 * waterDepthFactor * startingGround[x][z]);
+				} while (ground[x][z] < 0.2
+					|| ground[x][z] < startingGround[x][z] - waterDepthFactor * startingGround[x][z]);
 				counter++;
 			} while (!FloodFillIterative(x, z));
 		}
