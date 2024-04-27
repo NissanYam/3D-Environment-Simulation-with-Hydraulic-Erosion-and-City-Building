@@ -35,7 +35,7 @@ double tmp[GSZ][GSZ];
 double delta = 0.0004;
 bool start_rain = false;
 bool build_city = false;
-double waterDepthFactor = 0.05;
+double waterDepthFactor = 0.3;
 bool HydraulicErosionAct = false;
 int maxDistFronCenter = 10;
 int minimumRiverDist = 1;
@@ -43,6 +43,7 @@ int maximumRiverDist = 2;
 int bottomR = 1;
 int max_height_building = 5;
 int min_height_building = 2;
+int manximum_number_of_rain_points = 1000;
 vector<vector<bool>> visited(GSZ, vector<bool>(GSZ, false)); // Matrix to mark visited points
 vector<vector<int>> buildingHeights(GSZ, vector<int>(GSZ, 0)); // All heights initialized to 0
 vector<vector<bool>> build(GSZ, vector<bool>(GSZ, false)); // Matrix to mark points to build
@@ -226,32 +227,35 @@ void DrawWaterLayer() {
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	int i, j;
+	float baseBlue = 0.7;
+	float baseAlpha = 0.7; // Constant base for transparency
 	for (i = 1; i < GSZ; i++)
 		for (j = 1; j < GSZ; j++)
 		{
-			glBegin(GL_POLYGON);
+			if (startingGround[i][j] > 0)
+			{
+				glBegin(GL_POLYGON);
 
-				float baseBlue = 0;
-				float baseAlpha = 0.5; // Constant base for transparency
-				glColor4f(0, 0.4, baseBlue + ((ground[i][j] - waterDepthFactor * ground[i][j]) / ground[i][j]) * 0.3, baseAlpha + ((ground[i][j] - waterDepthFactor * ground[i][j]) / ground[i][j]) * 0.2);
-				glVertex3d(j - GSZ / 2, ground[i][j] - waterDepthFactor * ground[i][j], i - GSZ / 2);
+				glColor4f(0, 0.4, baseBlue + startingGround[i][j]/10, baseAlpha + startingGround[i][j] * 0.3);
+				glVertex3d(j - GSZ / 2, startingGround[i][j] - waterDepthFactor * startingGround[i][j], i - GSZ / 2);
 
-				glColor4f(0, 0.4, baseBlue + ((ground[i - 1][j] - waterDepthFactor * ground[i - 1][j]) / ground[i - 1][j]) * 0.3, baseAlpha + ((ground[i - 1][j] - waterDepthFactor * ground[i - 1][j]) / ground[i - 1][j]) * 0.2);
-				glVertex3d(j - GSZ / 2, ground[i - 1][j] - waterDepthFactor * ground[i - 1][j], i - 1 - GSZ / 2);
+				glColor4f(0, 0.4, baseBlue + startingGround[i - 1][j]/10, baseAlpha + startingGround[i - 1][j] * 0.3);
+				glVertex3d(j - GSZ / 2, startingGround[i - 1][j] - waterDepthFactor * startingGround[i - 1][j], i - 1 - GSZ / 2);
 
-				glColor4f(0, 0.4, baseBlue + ((ground[i - 1][j - 1] - waterDepthFactor * ground[i - 1][j - 1]) / ground[i - 1][j - 1]) * 0.3, baseAlpha + ((ground[i - 1][j - 1] - waterDepthFactor * ground[i - 1][j - 1]) / ground[i - 1][j - 1]) * 0.2);
-				glVertex3d(j - 1 - GSZ / 2, ground[i - 1][j - 1] - waterDepthFactor * ground[i - 1][j - 1], i - 1 - GSZ / 2);
+				glColor4f(0, 0.4, baseBlue + startingGround[i - 1][j - 1]/10, baseAlpha + startingGround[i - 1][j - 1] * 0.3);
+				glVertex3d(j - 1 - GSZ / 2, startingGround[i - 1][j - 1] - waterDepthFactor * startingGround[i - 1][j - 1], i - 1 - GSZ / 2);
 
-				glColor4f(0, 0.4, baseBlue + ((ground[i][j - 1] - waterDepthFactor * ground[i][j - 1]) / ground[i][j - 1]) * 0.3, baseAlpha + ((ground[i][j - 1] - waterDepthFactor * ground[i][j - 1]) / ground[i][j - 1]) * 0.2);
-				glVertex3d(j - 1 - GSZ / 2, ground[i][j - 1] - waterDepthFactor * ground[i][j - 1], i - GSZ / 2);
+				glColor4f(0, 0.4, baseBlue + startingGround[i][j - 1]/10, baseAlpha + startingGround[i][j - 1] * 0.3);
+				glVertex3d(j - 1 - GSZ / 2, startingGround[i][j - 1] - waterDepthFactor * startingGround[i][j - 1], i - GSZ / 2);
 
-			glEnd();
+				glEnd();
+			}
 		}
 
 	// water + transparency
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glColor4d(0, 0.4, 0.7, 0.7);
+	glColor4d(0, 0.4, baseBlue, baseAlpha);
 	glBegin(GL_POLYGON);
 	glVertex3d(-GSZ / 2, 0, -GSZ / 2);
 	glVertex3d(-GSZ / 2, 0, GSZ / 2);
@@ -323,16 +327,15 @@ bool findLowNearPoint(int* x, int* z) {
 /*
 Finding the route through which the water drops from the rain pass
 */
-POINT3* getRainRoute(int x, int z, int* size) {
+POINT3_INT* getRainRoute(int x, int z, int* size) {
 	*size = 1;
-	POINT3* route = (POINT3*)malloc(sizeof(POINT3) * (*size));
+	POINT3_INT* route = (POINT3_INT*)malloc(sizeof(POINT3_INT) * (*size));
 	if (!route) {
 		fprintf(stderr, "Memory allocation failed\n");
 		return NULL;
 	}
 	route[0].x = x;
 	route[0].z = z;
-	route[0].y = ground[x][z];
 
 	while (true) {
 		if (!findLowNearPoint(&x, &z)) {
@@ -351,7 +354,7 @@ POINT3* getRainRoute(int x, int z, int* size) {
 
 		// Add new point to the route
 		(*size)++;
-		POINT3* new_route = (POINT3*)realloc(route, sizeof(POINT3) * (*size));
+		POINT3_INT* new_route = (POINT3_INT*)realloc(route, sizeof(POINT3_INT) * (*size));
 		if (!new_route) {
 			fprintf(stderr, "Memory reallocation failed\n");
 			free(route);
@@ -360,10 +363,10 @@ POINT3* getRainRoute(int x, int z, int* size) {
 		route = new_route;
 		route[(*size) - 1].x = x;
 		route[(*size) - 1].z = z;
-		route[(*size) - 1].y = ground[x][z];
 
 		// Stop if the point is below the water line
-		if (route[(*size) - 1].y < 0) {
+		if (ground[route[(*size) - 1].x][route[(*size) - 1].z] < 0 ||
+			ground[route[(*size) - 1].x][route[(*size) - 1].z] <= startingGround[x][z] - waterDepthFactor *startingGround[x][z]) {
 			break;
 		}
 	}
@@ -381,33 +384,38 @@ void HydraulicErosion() {
 		x = rand() % GSZ;
 		z = rand() % GSZ;
 	} while (ground[x][z] <= 0);
-
-	size = 1;
-	POINT3* route = getRainRoute(x, z, &size);
-	if (route == NULL) {
-		fprintf(stderr, "Failed to generate rain route.\n");
-		return;
-	}
-
-	int number_of_rain_points = rand() % GSZ;
-	for (i = 0; i < size - 1; i++) {
-		x = route[i].x;
-		z = route[i].z;
-		ground[x][z] -= delta * number_of_rain_points;  // Apply erosion
-	}
-	// Deposit sediment at the last point in the route
-	x = route[size - 1].x;
-	z = route[size - 1].z;
-	if (ground[x][z] > 0)
+	int number_of_rain_points = rand() % manximum_number_of_rain_points;
+	for (int l = 0; l < number_of_rain_points; l++)
 	{
-		ground[x][z] += delta*number_of_rain_points;
-	}
-	else
-	{
-		ground[x][z] -= delta * number_of_rain_points;
-	}
+		size = 1;
+		POINT3_INT* route = getRainRoute(x, z, &size);
+		if (route == NULL) {
+			fprintf(stderr, "Failed to generate rain route.\n");
+			return;
+		}
 
-	free(route);  // Free the dynamically allocated memory
+
+		for (i = 0; i < size - 1; i++) {
+			x = route[i].x;
+			z = route[i].z;
+			ground[x][z] -= delta;  // Apply erosion
+		}
+		// Deposit sediment at the last point in the route
+		int last_point_x = route[size - 1].x;
+		int last_point_z = route[size - 1].z;
+		if (ground[last_point_x][last_point_z] > 0 
+			||
+			ground[last_point_x][last_point_z] > startingGround[last_point_x][last_point_z] - waterDepthFactor * startingGround[last_point_x][last_point_z])
+		{
+			ground[last_point_x][last_point_z] += delta;
+		}
+		else
+		{
+			ground[last_point_x][last_point_z] -= delta;
+		}
+
+		free(route);  // Free the dynamically allocated memory
+	}
 }
 /*
 Draws a wall of a house
@@ -571,13 +579,8 @@ bool isValidPoint(int centerX, int centerZ) {
 					continue;
 
 				// Checking if the point is valid for building
-				if (ground[x][z] <= (startingGround[x][z] - 5 * waterDepthFactor * startingGround[x][z]) || ground[x][z] < 0) {
-					if (x <= 5 || z <= 5 || x >= GSZ - 5 || z >= GSZ - 5) {
-						return false;
-					}
-					else {
-						return true;
-					}
+				if (ground[x][z] < (startingGround[x][z] - waterDepthFactor * startingGround[x][z]) || ground[x][z] < 0) {
+					return true;
 				}
 			}
 		}
@@ -591,13 +594,13 @@ or
 Did start in this environment hydraulic demolition
 or
 Have you already built a building in this environment?*/
-bool validPlace(int x, int z)
+bool validPlaceToBuild(int x, int z)
 {
 	for (int i = -bottomR; i <= bottomR; i++)
 		for (int j = -bottomR; j <= bottomR; j++)
-			if (x - i >= 0 && x - i < GSZ && z - j >= 0 && z - j < GSZ)
-				if (ground[x + i][z + j] <= 0.6
-					|| ground[x][z] <= startingGround[x][z] - waterDepthFactor * startingGround[x][z]
+			if (x + i >= 0 && x + i < GSZ && z + j >= 0 && z + j < GSZ)
+				if (ground[x + i][z + j] <= 0.2
+					|| ground[x + i][z + j] <= startingGround[x][z] - waterDepthFactor * startingGround[x][z]
 					|| build[x + i][z + j] == true)
 					return false;
 	return true;
@@ -618,7 +621,7 @@ bool FloodFillIterative(int centerX, int centerZ)
 		current = myStack.back();
 		myStack.pop_back();
 		// 2. Checking conditions
-		if (isValidPoint(current.x, current.z) && validPlace(current.x,current.z))
+		if (isValidPoint(current.x, current.z) && validPlaceToBuild(current.x,current.z))
 		{
 			for (int i = -radius; i <= radius; i++)
 				for (int j = -radius; j <= radius; j++)
@@ -670,7 +673,95 @@ If it is a point that is not vaild, I will search in neighboring points*/
 }
 
 
+void DrawWheel(int n)
+{
+	double alpha, teta = 2 * PI / n;
+	double x, y;
 
+	glColor3d(0, 0, 0);
+
+	glBegin(GL_LINES);
+	for (alpha = 0; alpha <= 2 * PI; alpha += teta)
+	{
+		x = cos(alpha);
+		y = sin(alpha);
+
+		glVertex2d(x, y);
+		glVertex2d(0, 0);
+
+	}
+	glEnd();
+
+	glLineWidth(2);
+	teta = 2 * PI / (n * 10);
+	glBegin(GL_LINE_STRIP);
+	for (alpha = 0; alpha <= 2 * PI; alpha += teta)
+	{
+		x = cos(alpha);
+		y = sin(alpha);
+
+		glVertex2d(x, y);
+
+	}
+	glEnd();
+	glLineWidth(1);
+}
+
+void DrawBicycle()
+{
+	// front wheel
+	glPushMatrix(); // the transformations that are inside PUSH/POP will not be applied oustside  PUSH/POP
+	glTranslated(-0.12, 0, 0);
+	glScaled(0.06, 0.06, 1);
+	glRotated(angle, 0, 0, 1);
+	DrawWheel(12);
+	glPopMatrix();
+
+	// rear wheel
+	glPushMatrix(); // the transformations that are inside PUSH/POP will not be applied oustside  PUSH/POP
+	glTranslated(0.12, 0, 0);
+	glScaled(0.06, 0.06, 1);
+	glRotated(angle, 0, 0, 1);
+	DrawWheel(12);
+	glPopMatrix();
+
+	glPushMatrix(); // the transformations that are inside PUSH/POP will not be applied oustside  PUSH/POP
+
+	glScaled(0.02, 0.02, 1);
+	glRotated(angle, 0, 0, 1);
+	DrawWheel(12);
+	glPopMatrix();
+
+	// frame
+	glColor3d(1, 0.4, 0);
+	glBegin(GL_LINE_LOOP);
+	glVertex2d(0, 0);
+	glVertex2d(0.12, 0);
+	glVertex2d(0.04, 0.09);
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	glVertex2d(0, 0);
+	glVertex2d(-0.10, 0.08);
+	glVertex2d(-0.12, 0);
+	glVertex2d(-0.09, 0.12);
+	glVertex2d(0.04, 0.09);
+	glEnd();
+	// handle
+	glBegin(GL_LINE_STRIP);
+	glVertex2d(-0.09, 0.12);
+	glVertex2d(-0.08, 0.14);
+	glVertex2d(-0.12, 0.14);
+	glEnd();
+	// saddle
+	glBegin(GL_LINE_STRIP);
+	glVertex2d(0.04, 0.09);
+	glVertex2d(0.05, 0.11);
+	glVertex2d(0.02, 0.11);
+	glVertex2d(0.07, 0.11);
+	glEnd();
+
+}
 void dispalyWorld()
 {
 	DrawFloor();
@@ -712,10 +803,26 @@ void dispalyWorld()
 	{
 		for (int j = 0; j < GSZ; j++)
 		{
-			if (build[i][j] == true && buildingHeights[i][j] > 0)
+			if (build[i][j] == true && buildingHeights[i][j] > 0) {
 				DrawBuilding(i, j);
-			if (build[i][j] == true && buildingHeights[i][j] == 0)
-				DrawRoad(i, j);
+				glPushMatrix();
+				if (i + 2 < GSZ && j+1 < GSZ && j-1 > 0)
+				{
+					if (ground[i + 2][j] > startingGround[i + 2][j] - waterDepthFactor * startingGround[i + 2][j])
+					{
+						glTranslated((double)(j - GSZ / 2) + 0.01, ground[i + 1][j] + 0.1, (double)(i - GSZ / 2) + 1.5);
+						glScaled(3, 5, 3);
+						DrawBicycle();
+						glPopMatrix();
+						DrawRoad(i + 2, j);
+						DrawRoad(i + 2, j + 1);
+						DrawRoad(i + 2, j - 1);
+					}
+				}
+			}
+			if (build[i][j] == true && buildingHeights[i][j] == 0) {
+				//DrawRoad(i, j);
+			}
 		}
 	}
 }
