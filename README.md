@@ -52,6 +52,12 @@ This project is a simulation of a 3D environment where the user can navigate thr
 4. City building involves selecting points on the terrain and using a flood-fill algorithm to construct buildings.
 5. Menu options allow for switching between views, starting/stopping rain, and building/resetting the city.
 
+
+
+https://github.com/NissanYam/3D-Environment-Simulation-with-Hydraulic-Erosion-and-City-Building/assets/101415763/227114d2-3b7c-4dd1-be86-058a40349225
+
+
+
 ## Credits
 
 This project was created by Nissan Yamin.
